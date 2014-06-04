@@ -23,7 +23,7 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named:"bg.png"))
         
-        var yOffset : CGFloat = 20;
+        var yOffset : CGFloat = 20
         var width = self.view.frame.width
         
         //Overlay Image
@@ -36,7 +36,7 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
         self.searchBar.barStyle = UIBarStyle.Black
         self.searchBar.text = "funny"
         
-        yOffset += self.searchBar.frame.height;
+        yOffset += self.searchBar.frame.height
         
         //UITableView with keyboard dismiss on drag
         postsTableView = UITableView(frame:CGRectMake(0, yOffset, width-20, self.view.frame.height-yOffset))
@@ -71,7 +71,7 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
         
         
         results = []
-        var subreddit = self.searchBar.text;
+        var subreddit = self.searchBar.text
         
         println(subreddit)
         
@@ -121,7 +121,7 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
                         self.retrievedNothingAlertWithTitle("Nothing Here", message:"Maybe this isn't a Subreddit, try again.")
                         })
                 }
-                });
+                })
             
         }else{
             retrievedNothingAlertWithTitle("Invalid Subreddit Name", message:"Must contain letters, numbers, or '_'.\nMust not start with '_'.\nMust not be longer than 21 characters.")
@@ -168,7 +168,7 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let kCellIdentifier = "Cell";
+        let kCellIdentifier = "Cell"
         
         var post = results[indexPath.row]
         
@@ -200,7 +200,7 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
         var textRect : CGRect = title.boundingRectWithSize(maximumLabelSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(12)], context: nil)
 
     
-        return textRect.height + CGFloat(50);
+        return textRect.height + CGFloat(50)
     }
     
     //Make the status bar white

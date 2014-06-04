@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.makeKeyAndVisible()
         
         var mainViewController = MainViewController(nibName: nil, bundle: nil)
-        self.window!.rootViewController = mainViewController;
+        self.window!.rootViewController = mainViewController
         return true
     }
 

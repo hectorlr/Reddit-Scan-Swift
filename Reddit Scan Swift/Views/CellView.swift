@@ -42,15 +42,15 @@ class CellView: UITableViewCell {
         //Get image from either cache or asynchronously
         setImage(post.thumbnailURL, thumbnailView:thumbnailView)
         
-        xOffset += thumbnailView.frame.size.width + 5;
-        var width = self.frame.size.width - xOffset;
+        xOffset += thumbnailView.frame.size.width + 5
+        var width = self.frame.size.width - xOffset
         
         //Add the lable for the author using the provided font
         var authorLabel = UILabel(frame:CGRectMake(xOffset, yOffset, width, 22))
-        authorLabel.text = post.author;
-        authorLabel.textColor = UIColor(red:54.0/255.0, green:145.0/255.0, blue:255.0/255.0, alpha:1);
+        authorLabel.text = post.author
+        authorLabel.textColor = UIColor(red:54.0/255.0, green:145.0/255.0, blue:255.0/255.0, alpha:1)
         authorLabel.font = UIFont(name: "bebasneue", size: 22)
-        yOffset += authorLabel.frame.size.height+5;
+        yOffset += authorLabel.frame.size.height+5
         
         //Set the size for the title frame
         var maximumLabelSize = CGSizeMake(width-15,9999)
@@ -77,7 +77,7 @@ class CellView: UITableViewCell {
         var parent = self.parent as MainViewController
         if parent.imageCache.objectForKey(url) != nil{
             var thumbnail = parent.imageCache.objectForKey(url) as UIImage
-            thumbnailView.image = thumbnail;
+            thumbnailView.image = thumbnail
     
     
             //Shadow is added to the UIImageView

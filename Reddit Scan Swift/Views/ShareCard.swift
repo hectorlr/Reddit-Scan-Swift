@@ -12,8 +12,8 @@ import MessageUI
 class ShareCard: UIView, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate {
     
     var parent : MainViewController
-    var postTitle = ""
-    var postURL  = ""
+    var postTitle : String?
+    var postURL  : String?
     
     init(frame: CGRect, parent : MainViewController) {
         self.parent = parent
