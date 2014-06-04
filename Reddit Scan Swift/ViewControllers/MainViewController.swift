@@ -53,7 +53,7 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
         postsTableView.addSubview(refreshControl)
         
         //Share card initialized off screen
-        var ratio = 402.0 / 566.0
+        var ratio : CGFloat = 402.0 / 566.0
         var height : CGFloat = ratio * (width-50.0)
         shareCard = ShareCard(frame: CGRectMake(width, self.view.frame.height, width-50, height), parent: self)
         
