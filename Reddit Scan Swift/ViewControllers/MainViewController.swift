@@ -106,7 +106,7 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
                                 postURL = "www.reddit.com\(postURL)"
                                 
                                 var post = Post(title: title, author: author, thumbnailURL: thumbnailURL, postURL: postURL)
-                                self.results.append(post)
+                                self.results += post
                             }
                             self.postsTableView.reloadData()
                             self.refreshControl.endRefreshing()
