@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Post: NSObject {
+class Post {
     var title : String
     var author : String
     var thumbnailURL : String
