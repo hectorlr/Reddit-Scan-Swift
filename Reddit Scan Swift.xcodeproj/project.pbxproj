@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C47F803C193E627F00A57B51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47F803B193E627F00A57B51 /* AppDelegate.swift */; };
-		C47F803E193E627F00A57B51 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C47F803D193E627F00A57B51 /* Images.xcassets */; };
 		C47F804A193E627F00A57B51 /* Reddit_Scan_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47F8049193E627F00A57B51 /* Reddit_Scan_SwiftTests.swift */; };
+		C47F8059193E63A200A57B51 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47F8058193E63A200A57B51 /* MainViewController.swift */; };
+		C493B9F6193E90F800BEDA9C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C493B9F5193E90F800BEDA9C /* Post.swift */; };
+		C493B9FA193E9BC900BEDA9C /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C493B9F9193E9BC900BEDA9C /* CellView.swift */; };
+		C493B9FC193EB9D200BEDA9C /* ShareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C493B9FB193EB9D200BEDA9C /* ShareCard.swift */; };
+		C493B9FE193EEEC900BEDA9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C493B9FD193EEEC900BEDA9C /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,10 +30,14 @@
 		C47F8036193E627F00A57B51 /* Reddit Scan Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reddit Scan Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47F803A193E627F00A57B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C47F803B193E627F00A57B51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C47F803D193E627F00A57B51 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C47F8043193E627F00A57B51 /* Reddit Scan SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Reddit Scan SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47F8048193E627F00A57B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C47F8049193E627F00A57B51 /* Reddit_Scan_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reddit_Scan_SwiftTests.swift; sourceTree = "<group>"; };
+		C47F8058193E63A200A57B51 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = "Reddit Scan Swift/ViewControllers/MainViewController.swift"; sourceTree = SOURCE_ROOT; };
+		C493B9F5193E90F800BEDA9C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		C493B9F9193E9BC900BEDA9C /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		C493B9FB193EB9D200BEDA9C /* ShareCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareCard.swift; sourceTree = "<group>"; };
+		C493B9FD193EEEC900BEDA9C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,10 @@
 		C47F802D193E627F00A57B51 = {
 			isa = PBXGroup;
 			children = (
+				C493B9FD193EEEC900BEDA9C /* Images.xcassets */,
+				C47F8053193E634D00A57B51 /* Models */,
+				C47F8054193E634D00A57B51 /* ViewContollers */,
+				C47F8055193E634D00A57B51 /* Views */,
 				C47F8038193E627F00A57B51 /* Reddit Scan Swift */,
 				C47F8046193E627F00A57B51 /* Reddit Scan SwiftTests */,
 				C47F8037193E627F00A57B51 /* Products */,
@@ -72,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				C47F803B193E627F00A57B51 /* AppDelegate.swift */,
-				C47F803D193E627F00A57B51 /* Images.xcassets */,
 				C47F8039193E627F00A57B51 /* Supporting Files */,
 			);
 			path = "Reddit Scan Swift";
@@ -101,6 +112,34 @@
 				C47F8048193E627F00A57B51 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C47F8053193E634D00A57B51 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C493B9F5193E90F800BEDA9C /* Post.swift */,
+			);
+			name = Models;
+			path = "Reddit Scan Swift/Models";
+			sourceTree = "<group>";
+		};
+		C47F8054193E634D00A57B51 /* ViewContollers */ = {
+			isa = PBXGroup;
+			children = (
+				C47F8058193E63A200A57B51 /* MainViewController.swift */,
+			);
+			name = ViewContollers;
+			path = "Reddit Scan Swift/ViewContollers";
+			sourceTree = "<group>";
+		};
+		C47F8055193E634D00A57B51 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C493B9F9193E9BC900BEDA9C /* CellView.swift */,
+				C493B9FB193EB9D200BEDA9C /* ShareCard.swift */,
+			);
+			name = Views;
+			path = "Reddit Scan Swift/Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,7 +221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C47F803E193E627F00A57B51 /* Images.xcassets in Resources */,
+				C493B9FE193EEEC900BEDA9C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +239,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C493B9FA193E9BC900BEDA9C /* CellView.swift in Sources */,
+				C493B9F6193E90F800BEDA9C /* Post.swift in Sources */,
+				C493B9FC193EB9D200BEDA9C /* ShareCard.swift in Sources */,
 				C47F803C193E627F00A57B51 /* AppDelegate.swift in Sources */,
+				C47F8059193E63A200A57B51 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +420,7 @@
 				C47F804F193E627F00A57B51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C47F8050193E627F00A57B51 /* Build configuration list for PBXNativeTarget "Reddit Scan SwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -385,6 +429,7 @@
 				C47F8052193E627F00A57B51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
