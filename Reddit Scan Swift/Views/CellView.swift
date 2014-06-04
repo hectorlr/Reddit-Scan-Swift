@@ -37,29 +37,29 @@ class CellView: UITableViewCell {
         var xOffset : CGFloat = 20
         
         //Image associated with post
-        var thumbnailView = UIImageView(frame:CGRectMake(xOffset, yOffset, 50, 50))
+        let thumbnailView = UIImageView(frame:CGRectMake(xOffset, yOffset, 50, 50))
         
         //Get image from either cache or asynchronously
         setImage(post.thumbnailURL, thumbnailView:thumbnailView)
         
         xOffset += thumbnailView.frame.size.width + 5
-        var width = self.frame.size.width - xOffset
+        let width = self.frame.size.width - xOffset
         
         //Add the lable for the author using the provided font
-        var authorLabel = UILabel(frame:CGRectMake(xOffset, yOffset, width, 22))
+        let authorLabel = UILabel(frame:CGRectMake(xOffset, yOffset, width, 22))
         authorLabel.text = post.author
         authorLabel.textColor = UIColor(red:54.0/255.0, green:145.0/255.0, blue:255.0/255.0, alpha:1)
         authorLabel.font = UIFont(name: "bebasneue", size: 22)
         yOffset += authorLabel.frame.size.height+5
         
         //Set the size for the title frame
-        var maximumLabelSize = CGSizeMake(width-15,9999)
-        var title = NSString(string:post.title)
+        let maximumLabelSize = CGSizeMake(width-15,9999)
+        let title = NSString(string:post.title)
         
-        var textRect : CGRect = title.boundingRectWithSize(maximumLabelSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(12)], context: nil)
+        let textRect : CGRect = title.boundingRectWithSize(maximumLabelSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(12)], context: nil)
         
         //Add the title
-        var titleLabel = UILabel(frame:CGRectMake(xOffset, yOffset, textRect.width, textRect.height))
+        let titleLabel = UILabel(frame:CGRectMake(xOffset, yOffset, textRect.width, textRect.height))
         titleLabel.text = post.title
         titleLabel.font = UIFont.systemFontOfSize(12)
         titleLabel.textColor = UIColor.whiteColor()
@@ -74,14 +74,14 @@ class CellView: UITableViewCell {
     //Pull the images from a cache if possible.
     //If not, asynchronously load image and store it in cache
     func setImage(url : String, thumbnailView : UIImageView){
-        var parent = self.parent as MainViewController
+        let parent = self.parent as MainViewController
         if parent.imageCache.objectForKey(url) != nil{
-            var thumbnail = parent.imageCache.objectForKey(url) as UIImage
+            let thumbnail = parent.imageCache.objectForKey(url) as UIImage
             thumbnailView.image = thumbnail
     
     
             //Shadow is added to the UIImageView
-            var shadowPath = UIBezierPath(rect: thumbnailView.bounds)
+            let shadowPath = UIBezierPath(rect: thumbnailView.bounds)
             thumbnailView.layer.masksToBounds = false
             thumbnailView.layer.shadowColor = UIColor.blackColor().CGColor
             thumbnailView.layer.shadowOffset = CGSizeMake(0, 5)
@@ -91,10 +91,10 @@ class CellView: UITableViewCell {
             //Asynchronously load images
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),{
     
-                var data = NSData(contentsOfURL: NSURL(string:url))
+                let data = NSData(contentsOfURL: NSURL(string:url))
     
                 dispatch_async(dispatch_get_main_queue(), {
-                    var thumbnail = UIImage(data: data)
+                    let thumbnail = UIImage(data: data)
                     if thumbnail != nil {
                         parent.imageCache.setObject(thumbnail, forKey: url)
                         thumbnailView.image = thumbnail

@@ -11,7 +11,7 @@ import MessageUI
 
 class ShareCard: UIView, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate {
     
-    var parent : MainViewController
+    let parent : MainViewController
     var postTitle : String?
     var postURL  : String?
     
@@ -27,26 +27,26 @@ class ShareCard: UIView, MFMessageComposeViewControllerDelegate, MFMailComposeVi
         self.postTitle = post.title
         self.postURL = post.postURL
         //Set the background image and resize the view to match the dimensions of the image
-        var background = UIImage(named:"shareCard.png")
-        var backgroundView = UIImageView(image: background)
+        let background = UIImage(named:"shareCard.png")
+        let backgroundView = UIImageView(image: background)
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, backgroundView.frame.size.width, backgroundView.frame.size.height)
         
         //Add an invisible button over the top right corner to close the view
-        var closeButton = UIButton(frame: CGRectMake(self.frame.size.width-30, 0, 30, 30))
+        let closeButton = UIButton(frame: CGRectMake(self.frame.size.width-30, 0, 30, 30))
         closeButton.backgroundColor = UIColor.clearColor()
         closeButton.addTarget(self, action:Selector("closeButtonTapped"), forControlEvents:UIControlEvents.TouchUpInside)
         
         var yOffset : CGFloat = 70
         
         //Add a button using the provided image for emailing the post
-        var emailButton = UIButton(frame: CGRectMake(0, yOffset, self.frame.size.width, 50))
+        let emailButton = UIButton(frame: CGRectMake(0, yOffset, self.frame.size.width, 50))
         emailButton.setImage(UIImage(named:"email.png"), forState: UIControlState.Normal)
         emailButton.addTarget(self, action:Selector("emailButtonTapped"), forControlEvents: UIControlEvents.TouchUpInside)
         
         yOffset+=emailButton.frame.size.height+15
         
         //Add a button using the provided image for sending an sms message using the post
-        var smsButton = UIButton(frame: CGRectMake(0, yOffset, self.frame.size.width, 50))
+        let smsButton = UIButton(frame: CGRectMake(0, yOffset, self.frame.size.width, 50))
         smsButton.setImage(UIImage(named:"sms.png"), forState:UIControlState.Normal)
         smsButton.addTarget(self, action:Selector("smsButtonTapped"), forControlEvents: UIControlEvents.TouchUpInside)
         
@@ -77,9 +77,9 @@ class ShareCard: UIView, MFMessageComposeViewControllerDelegate, MFMailComposeVi
         
         if !MFMessageComposeViewController.canSendText() {
             
-            var alert = UIAlertController(title: "Error", message: "Your device doesn't support SMS!", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Error", message: "Your device doesn't support SMS!", preferredStyle: UIAlertControllerStyle.Alert)
             
-            var alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler:nil)
+            let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler:nil)
             
             alert.addAction(alertAction)
             self.parent.presentModalViewController(alert, animated: true)
@@ -87,9 +87,9 @@ class ShareCard: UIView, MFMessageComposeViewControllerDelegate, MFMailComposeVi
             return
         }
         
-        var message = "Check out this epic Reddit post: \(self.postTitle)\n\n\(self.postURL)"
+        let message = "Check out this epic Reddit post: \(self.postTitle)\n\n\(self.postURL)"
         
-        var messageController = MFMessageComposeViewController(nibName: nil, bundle: nil)
+        let messageController = MFMessageComposeViewController(nibName: nil, bundle: nil)
         messageController.messageComposeDelegate = self
         messageController.body = message
         
@@ -103,9 +103,9 @@ class ShareCard: UIView, MFMessageComposeViewControllerDelegate, MFMailComposeVi
         switch result.value {
         case MessageComposeResultFailed.value:
             
-            var alert = UIAlertController(title: "Error", message: "Failed to send SMS!", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Error", message: "Failed to send SMS!", preferredStyle: UIAlertControllerStyle.Alert)
             
-            var alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler:nil)
+            let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler:nil)
             
             alert.addAction(alertAction)
             self.parent.presentModalViewController(alert, animated: true)
@@ -127,11 +127,11 @@ class ShareCard: UIView, MFMessageComposeViewControllerDelegate, MFMailComposeVi
     //When the email button is tapped, create an email and show the email view
     func emailButtonTapped() {
         // Email Subject
-        var emailTitle = "Check out this epic Reddit post!"
+        let emailTitle = "Check out this epic Reddit post!"
         // Email Content
-        var messageBody = "\(self.postTitle)\n\n\(self.postURL)"
+        let messageBody = "\(self.postTitle)\n\n\(self.postURL)"
         
-        var mc = MFMailComposeViewController()
+        let mc = MFMailComposeViewController()
         mc.mailComposeDelegate = self
         mc.setSubject(emailTitle)
         mc.setMessageBody(messageBody, isHTML:false)

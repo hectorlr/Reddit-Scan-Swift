@@ -9,10 +9,10 @@
 import UIKit
 
 class Post {
-    var title : String
-    var author : String
-    var thumbnailURL : String
-    var postURL : String
+    let title : String
+    let author : String
+    let thumbnailURL : String
+    let postURL : String
     
     init(title:String, author : String, thumbnailURL : String, postURL : String){
         self.title = title
