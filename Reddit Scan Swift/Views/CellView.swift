@@ -18,7 +18,7 @@ class CellView: UITableViewCell {
         
         self.parent = parent
         self.backgroundColor = UIColor.clearColor()
-        self.selectionStyle = UITableViewCellSelectionStyle.None
+        self.selectionStyle = .None
     }
 
     override func awakeFromNib() {
@@ -56,14 +56,14 @@ class CellView: UITableViewCell {
         let maximumLabelSize = CGSizeMake(width-15,9999)
         let title = NSString(string:post.title)
         
-        let textRect : CGRect = title.boundingRectWithSize(maximumLabelSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(12)], context: nil)
+        let textRect : CGRect = title.boundingRectWithSize(maximumLabelSize, options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(12)], context: nil)
         
         //Add the title
         let titleLabel = UILabel(frame:CGRectMake(xOffset, yOffset, textRect.width, textRect.height))
         titleLabel.text = post.title
         titleLabel.font = UIFont.systemFontOfSize(12)
         titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        titleLabel.lineBreakMode = .ByWordWrapping
         titleLabel.numberOfLines = 0
         
         self.addSubview(thumbnailView)

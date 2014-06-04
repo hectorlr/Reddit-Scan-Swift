@@ -34,21 +34,21 @@ class ShareCard: UIView, MFMessageComposeViewControllerDelegate, MFMailComposeVi
         //Add an invisible button over the top right corner to close the view
         let closeButton = UIButton(frame: CGRectMake(self.frame.size.width-30, 0, 30, 30))
         closeButton.backgroundColor = UIColor.clearColor()
-        closeButton.addTarget(self, action:Selector("closeButtonTapped"), forControlEvents:UIControlEvents.TouchUpInside)
+        closeButton.addTarget(self, action:Selector("closeButtonTapped"), forControlEvents: .TouchUpInside)
         
         var yOffset : CGFloat = 70
         
         //Add a button using the provided image for emailing the post
         let emailButton = UIButton(frame: CGRectMake(0, yOffset, self.frame.size.width, 50))
-        emailButton.setImage(UIImage(named:"email.png"), forState: UIControlState.Normal)
-        emailButton.addTarget(self, action:Selector("emailButtonTapped"), forControlEvents: UIControlEvents.TouchUpInside)
+        emailButton.setImage(UIImage(named:"email.png"), forState: .Normal)
+        emailButton.addTarget(self, action:Selector("emailButtonTapped"), forControlEvents: .TouchUpInside)
         
         yOffset+=emailButton.frame.size.height+15
         
         //Add a button using the provided image for sending an sms message using the post
         let smsButton = UIButton(frame: CGRectMake(0, yOffset, self.frame.size.width, 50))
-        smsButton.setImage(UIImage(named:"sms.png"), forState:UIControlState.Normal)
-        smsButton.addTarget(self, action:Selector("smsButtonTapped"), forControlEvents: UIControlEvents.TouchUpInside)
+        smsButton.setImage(UIImage(named:"sms.png"), forState: .Normal)
+        smsButton.addTarget(self, action:Selector("smsButtonTapped"), forControlEvents: .TouchUpInside)
         
         self.addSubview(closeButton)
         self.addSubview(backgroundView)
@@ -59,9 +59,9 @@ class ShareCard: UIView, MFMessageComposeViewControllerDelegate, MFMailComposeVi
     //Hide the view using animation
     func closeButtonTapped(){
         
-        UIView.animateWithDuration(0, delay: 0, options:UIViewAnimationOptions.BeginFromCurrentState,
+        UIView.animateWithDuration(0, delay: 0, options:.BeginFromCurrentState,
             animations: {
-                UIView.setAnimationCurve(UIViewAnimationCurve.Linear)
+                UIView.setAnimationCurve(.Linear)
                 self.frame=CGRectMake(self.parent.view.frame.size.width, self.parent.view.frame.size.height, self.frame.size.width, self.frame.size.height)
             },
             completion: {
@@ -103,9 +103,9 @@ class ShareCard: UIView, MFMessageComposeViewControllerDelegate, MFMailComposeVi
         switch result.value {
         case MessageComposeResultFailed.value:
             
-            let alert = UIAlertController(title: "Error", message: "Failed to send SMS!", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Error", message: "Failed to send SMS!", preferredStyle: .Alert)
             
-            let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler:nil)
+            let alertAction = UIAlertAction(title: "OK", style: .Cancel, handler:nil)
             
             alert.addAction(alertAction)
             self.parent.presentModalViewController(alert, animated: true)

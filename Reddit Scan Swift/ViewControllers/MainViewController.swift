@@ -33,7 +33,7 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
         //Black search bar initialized with 'funny'
         self.searchBar = UISearchBar(frame: CGRectMake(0, yOffset, width, 40))
         self.searchBar.delegate = self
-        self.searchBar.barStyle = UIBarStyle.Black
+        self.searchBar.barStyle = .Black
         self.searchBar.text = "funny"
         
         yOffset += self.searchBar.frame.height
@@ -43,13 +43,13 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
         postsTableView.delegate = self
         postsTableView.dataSource = self
         postsTableView.backgroundColor = UIColor.clearColor()
-        postsTableView.keyboardDismissMode = UIScrollViewKeyboardDismissMode.OnDrag
+        postsTableView.keyboardDismissMode = .OnDrag
         
         
         
         //Pull to refresh
         refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: Selector("getResultsAndLoadTableView"), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: Selector("getResultsAndLoadTableView"), forControlEvents: .ValueChanged)
         postsTableView.addSubview(refreshControl)
         
         //Share card initialized off screen
@@ -89,7 +89,7 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
                 if data != nil {
                     
                     dispatch_async(dispatch_get_main_queue(), {
-                        let jsonObject : NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableLeaves, error: nil) as NSDictionary
+                        let jsonObject : NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: nil) as NSDictionary
                         if(jsonObject != nil){
                             let data = jsonObject["data"] as NSDictionary
                             let children = data["children"] as NSArray
@@ -141,9 +141,9 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     //Used when the search result returns nothing
     func retrievedNothingAlertWithTitle(title : String, message : String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         
-        let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler:nil)
+        let alertAction = UIAlertAction(title: "OK", style: .Cancel, handler:nil)
         
         alert.addAction(alertAction)
         self.presentModalViewController(alert, animated: true)
@@ -172,11 +172,11 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
         
         let post = results[indexPath.row]
         
-        var cell = CellView(style: UITableViewCellStyle.Subtitle, reuseIdentifier: kCellIdentifier, parent: self)
+        var cell = CellView(style: .Subtitle, reuseIdentifier: kCellIdentifier, parent: self)
         cell.setPost(post)
         
         if cell == nil {
-            cell = CellView(style: UITableViewCellStyle.Subtitle, reuseIdentifier: kCellIdentifier, parent: self)
+            cell = CellView(style: .Subtitle, reuseIdentifier: kCellIdentifier, parent: self)
         }
 
         
@@ -197,7 +197,7 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let title = NSString(string:post.title)
         let maximumLabelSize = CGSizeMake(self.view.frame.size.width-85,9999)
 
-        let textRect : CGRect = title.boundingRectWithSize(maximumLabelSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(12)], context: nil)
+        let textRect : CGRect = title.boundingRectWithSize(maximumLabelSize, options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(12)], context: nil)
 
     
         return textRect.height + CGFloat(50)
@@ -205,7 +205,7 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     //Make the status bar white
     override func preferredStatusBarStyle() -> UIStatusBarStyle{
-        return UIStatusBarStyle.LightContent
+        return .LightContent
     }
     
     //Handles search button tapped action
@@ -224,9 +224,9 @@ class MainViewController: UIViewController,UITableViewDataSource, UITableViewDel
         
     self.view.bringSubviewToFront(self.shareCard)
         
-        UIView.animateWithDuration(0.3, delay: 0, options:UIViewAnimationOptions.BeginFromCurrentState,
+        UIView.animateWithDuration(0.3, delay: 0, options:.BeginFromCurrentState,
             animations: {
-                UIView.setAnimationCurve(UIViewAnimationCurve.Linear)
+                UIView.setAnimationCurve(.Linear)
                 let xOffsetShareCard = (self.view.frame.width - self.shareCard.frame.width)/2.0
                 let yOffsetShareCard = (self.view.frame.height - self.shareCard.frame.height)/2.0
                 
